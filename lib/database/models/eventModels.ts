@@ -1,21 +1,21 @@
 import { Document } from "mongodb";
 import { Schema, model, models } from "mongoose";
 
-// export interface IEvent extends Document{
-//     _id:string,
-//     title: string;
-//     description?: string;
-//     location?: string;
-//     createdAt?: Date;
-//     imageUrl: string;
-//     startDateTime?: Date;
-//     endDateTime?: Date;
-//     price?: string;
-//     isFree?: boolean;
-//     url?: string;
-//     category?:{_id:string , name:string }
-//     organiser?: {_id:string , firstName:string  , lastName:string}
-// }
+export interface IEvent extends Document{
+    _id:string,
+    title: string;
+    description?: string;
+    location?: string;
+    createdAt?: Date;
+    iamgeUrl: string;
+    startDateTime: Date;
+    endDateTime: Date;
+    price: string;
+    isFree: boolean;
+    url?: string;
+    category :{_id:string , name:string }
+    organiser: {_id:string , username:string}
+}
 
 const EventSchema = new  Schema({
    
@@ -66,7 +66,10 @@ const EventSchema = new  Schema({
       },
       organiser:{
         type:Schema.Types.ObjectId,
-        ref:'User'
+        ref:'User',
+        required:true,
+        
+        
       },
 
 }) ;

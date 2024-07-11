@@ -3,11 +3,22 @@ import Header from "../../components/Header";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Footer from "../../components/Footer";
+import Collection from "@/components/Collection";
+import { getAllEvent } from "@/lib/actions/event.actions";
 
-export default function Home() {
+export default async function Home() {
+  const events = await getAllEvent({
+    query:'',
+    category:'',
+    page:1,
+    limit:6
+
+  })
+
+  
   return (
-    <div className="">
-      <Header />
+    
+      
       <>
         <section style={{ backgroundImage: 'radial-gradient(black 1px, transparent 0)', backgroundSize: '40px 40px' }} className="bg-primary-50 bg-dotted-pattern bg-contains-pattern py-5 md:py-10 ">
           <div className=" grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
@@ -32,11 +43,20 @@ export default function Home() {
           <div className="flex flex-col w-full gap-5 md:flex-row">
             Search category filter
           </div>
+          <Collection 
+            data={events?.data}
+            emptyTitle="No events found"
+            emptySubText="Come Back Later"
+            collectionType="All_Events"
+            limit={6}
+            page={1}
+            totalPages={2}
+           />
         </section>
 
       </>
-      <Footer/>
-    </div>
+      
+    
 
   );
 }
