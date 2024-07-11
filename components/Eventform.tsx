@@ -229,7 +229,7 @@ const Eventform = ({ userId,type,event , eventId }: EventFormProps) => {
                     <p className='ml-3 whitespace-nowrap text-grey-600 '>
                       Start Date:
                     </p>
-                    <DatePicker selected={field.value} onChange={(date:Date) => field.onChange(date)}  showTimeSelect timeInputLabel='Time:' dateFormat="dd/MM/yyyy h:mm aa " wrapperClassName='datePicker'/>
+                    <DatePicker selected={field.value} onChange={(date) => field.onChange(date)}  showTimeSelect timeInputLabel='Time:' dateFormat="dd/MM/yyyy h:mm aa " wrapperClassName='datePicker'/>
                   </div>
 
 
@@ -257,7 +257,7 @@ const Eventform = ({ userId,type,event , eventId }: EventFormProps) => {
                     <p className='ml-3 whitespace-nowrap text-grey-600 '>
                       End Date:
                     </p>
-                    <DatePicker selected={field.value} onChange={(date: Date) => field.onChange(date)}   showTimeSelect timeInputLabel='Time:' dateFormat="dd/MM/yyyy h:mm aa " wrapperClassName='datePicker'/>
+                    <DatePicker selected={field.value} onChange={(date) => field.onChange(date)}   showTimeSelect timeInputLabel='Time:' dateFormat="dd/MM/yyyy h:mm aa " wrapperClassName='datePicker'/>
                   </div>
 
 
